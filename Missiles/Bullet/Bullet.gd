@@ -8,5 +8,6 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2(0, -speed).rotated(rotation)
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		collision.hit(damage)
-		queue_free()
+		if collision.collider.has_method("hit"):
+			collision.collider.hit(damage)
+			queue_free()

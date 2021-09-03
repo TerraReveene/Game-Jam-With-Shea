@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/BulletShooter/SingleBulletShooter.gd" type="Script" id=1]
+[ext_resource path="res://Missiles/Bullet/EnemyBullet.tscn" type="PackedScene" id=2]
+
+[node name="SingleBulletShooter" type="Node2D"]
+rotation = -3.14159
+script = ExtResource( 1 )
+missile = ExtResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -500 )
