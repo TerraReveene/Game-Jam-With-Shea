@@ -1,16 +1,12 @@
-extends Sprite
+extends KinematicBody2D
 
+export var speed := 750.0
+var velocity := Vector2.ZERO
+var damage := 1
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _physics_process(delta: float) -> void:
+	velocity = Vector2(0, -speed).rotated(rotation)
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		collision.hit(damage)
+		queue_free()
