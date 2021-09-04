@@ -3,12 +3,18 @@ extends KinematicBody2D
 export var speed := 500.0
 var velocity := Vector2.ZERO
 var life := 50
-export var projectile: PackedScene
+var weapon
 var shootTimer: Timer
+var w
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shootTimer = get_node("ShootTimer")
+	weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.tscn")
+	#if weapon == null:
+	#	weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.gd")
+	w = weapon.instance()
+	w._ready()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,18 +32,19 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_down"):
 		velocity += Vector2.DOWN
 	if Input.is_action_just_pressed("shoot"):
-		shootTimer.start()
+		w.start_shooting()
 	if Input.is_action_just_released("shoot"):
-		shootTimer.stop()
+		w.stop_shooting()
 	velocity = velocity.normalized() * speed
 	var collision = move_and_collide(velocity * delta)
 
 func shoot():
-	if projectile == null:
-		return
-	var new_p = projectile.instance()
-	get_parent().add_child(new_p)
-	new_p.global_position = position + Vector2(0, -15)
+	pass
+	#if weapon == null:
+	#	return
+	#var new_p = projectile.instance()
+	#get_parent().add_child(new_p)
+	#new_p.global_position = position + Vector2(0, -15)
 
 
 func _on_ShootTimer_timeout():
