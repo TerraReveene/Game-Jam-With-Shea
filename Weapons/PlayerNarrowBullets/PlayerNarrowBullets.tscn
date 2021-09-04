@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/PlayerNarrowBullets/PlayerNarrowBullets.gd" type="Script" id=1]
+[ext_resource path="res://Missiles/Bullet/PlayerBullet.tscn" type="PackedScene" id=2]
+
+[node name="PlayerNarrowBullets" type="Node2D"]
+script = ExtResource( 1 )
+projectile = ExtResource( 2 )
+
+[node name="PlayerNarrowBulletsTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="PlayerNarrowBulletsTimer" to="." method="_on_PlayerNarrowBulletsTimer_timeout"]

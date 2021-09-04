@@ -1,20 +1,25 @@
 extends KinematicBody2D
 
-export var speed := 500.0
+export var base_speed := 500.0
+var speed
 var velocity := Vector2.ZERO
 var life := 50
-var weapon
-var shootTimer: Timer
-var w
+var primary_weapon
+var secondary_weapon
+var w1
+var w2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	shootTimer = get_node("ShootTimer")
-	weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.tscn")
+	primary_weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.tscn")
+	secondary_weapon = load("res://Weapons/PlayerNarrowBullets/PlayerNarrowBullets.tscn")
 	#if weapon == null:
 	#	weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.gd")
-	w = weapon.instance()
-	add_child(w)
+	w1 = primary_weapon.instance()
+	w2 = secondary_weapon.instance()
+	add_child(w1)
+	add_child(w2)
+	speed = base_speed
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,10 +36,20 @@ func _physics_process(delta: float):
 		velocity += Vector2.UP
 	if Input.is_action_pressed("ui_down"):
 		velocity += Vector2.DOWN
-	if Input.is_action_just_pressed("shoot"):
-		w.start_shooting()
-	if Input.is_action_just_released("shoot"):
-		w.stop_shooting()
+	if not w2.is_shooting():
+		if Input.is_action_just_pressed("shoot1"):
+			speed = w1.player_speed
+			w1.start_shooting()
+		if Input.is_action_just_released("shoot1"):
+			speed = base_speed
+			w1.stop_shooting()
+	if not w1.is_shooting():
+		if Input.is_action_just_pressed("shoot2"):
+			speed = w2.player_speed
+			w2.start_shooting()
+		if Input.is_action_just_released("shoot2"):
+			speed = base_speed
+			w2.stop_shooting()
 	velocity = velocity.normalized() * speed
 	var collision = move_and_collide(velocity * delta)
 

@@ -4,6 +4,8 @@ extends Node2D
 export var projectile: PackedScene
 #var playerWideBulletsTimer: Timer
 var playerWideBulletsTimer: Timer
+var player_speed = 500.0
+var shooting = false
 
 func _ready():
 	playerWideBulletsTimer = get_node("PlayerWideBulletsTimer")
@@ -45,6 +47,11 @@ func shoot():
 	
 func start_shooting():
 	playerWideBulletsTimer.start()
+	shooting = true
 
 func stop_shooting():
 	playerWideBulletsTimer.stop()
+	shooting = false
+
+func is_shooting():
+	return shooting
