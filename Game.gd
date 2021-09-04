@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -12,5 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	rotation += PI * delta
+#func _process(delta):
+#	pass
