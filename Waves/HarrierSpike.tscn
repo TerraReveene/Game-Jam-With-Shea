@@ -7,27 +7,36 @@
 
 [node name="Harrier" parent="." index="0" instance=ExtResource( 2 )]
 position = Vector2( 512, -100 )
+speed = 50
 
 [node name="Harrier2" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 412, -150 )
+speed = 50
 
 [node name="Harrier5" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 312, -200 )
+speed = 50
 
 [node name="Harrier7" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 212, -250 )
+speed = 50
 
 [node name="Harrier9" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 112, -300 )
+speed = 50
 
 [node name="Harrier3" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 612, -150 )
+speed = 50
 
 [node name="Harrier4" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 712, -200 )
+speed = 50
 
 [node name="Harrier6" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 812, -250 )
+speed = 50
 
 [node name="Harrier8" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 912, -300 )
+speed = 50

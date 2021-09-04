@@ -5,6 +5,9 @@ export var speed := 200
 export var collision_damage := 5
 var direction := Vector2.DOWN
 
+func _process(delta: float) -> void:
+	if $PlayerFinder.player_found:
+		aim_towards($PlayerFinder.player_position)
 
 func _physics_process(delta: float) -> void:
 	var velocity = move_and_slide(direction * speed)
@@ -20,9 +23,10 @@ func hit (damage) -> void:
 	if health < 1:
 		queue_free()
 
-func aim_towards_player() -> void:
+func aim_towards(vector: Vector2) -> void:
 	for child in $Weapons.get_children():
-		child.look_at(Vector2.ZERO)
+		child.look_at(vector)
+		child.rotation_degrees += 90
 
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	for child in $Weapons.get_children():

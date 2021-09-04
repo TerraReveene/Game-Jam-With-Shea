@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Enemies/Harrier.png" type="Texture" id=1]
 [ext_resource path="res://Weapons/BulletShooter/SingleBulletShooter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Units/Enemies/Harrier.gd" type="Script" id=3]
+[ext_resource path="res://Utility/PlayerFinder.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.9662
@@ -31,5 +32,7 @@ scale = Vector2( 3.2, 3.1 )
 [node name="SingleBulletShooter" parent="Weapons" instance=ExtResource( 2 )]
 position = Vector2( 0, 8 )
 rotation = -3.14159
+
+[node name="PlayerFinder" parent="." instance=ExtResource( 4 )]
 
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

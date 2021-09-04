@@ -7,3 +7,5 @@
 rotation = 3.14159
 script = ExtResource( 1 )
 missile = ExtResource( 2 )
+
+[node name="BulletHolder" type="Node" parent="."]
