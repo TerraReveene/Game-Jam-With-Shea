@@ -37,7 +37,8 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_down"):
 		velocity += Vector2.DOWN
 	if not w2.is_shooting():
-		if Input.is_action_just_pressed("shoot1"):
+		if Input.is_action_just_pressed("shoot1") \
+		or (Input.is_action_pressed("shoot1") and Input.is_action_just_released("shoot2")):
 			speed = w1.player_speed
 			w1.start_shooting()
 		if Input.is_action_just_released("shoot1"):
@@ -50,6 +51,14 @@ func _physics_process(delta: float):
 		if Input.is_action_just_released("shoot2"):
 			speed = base_speed
 			w2.stop_shooting()
+
+	if Input.is_action_pressed("shoot1") and Input.is_action_just_released("shoot2"):
+		speed = w1.player_speed
+		w1.start_shooting()
+
+	if Input.is_action_pressed("shoot2") and Input.is_action_just_released("shoot1"):
+		speed = w2.player_speed
+		w2.start_shooting()
 	velocity = velocity.normalized() * speed
 	var collision = move_and_collide(velocity * delta)
 
