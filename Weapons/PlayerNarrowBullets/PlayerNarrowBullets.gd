@@ -20,11 +20,13 @@ func shoot():
 	if projectile == null:
 		return
 	var new_p_left = projectile.instance()
-	get_parent().add_child(new_p_left)
+	$BulletHolder.add_child(new_p_left)
+	#get_parent().add_child(new_p_left)
 	new_p_left.global_position = global_position + Vector2(-4, -10)
 	
 	var new_p_right = projectile.instance()
-	get_parent().add_child(new_p_right)
+	$BulletHolder.add_child(new_p_right)
+	#get_parent().add_child(new_p_right)
 	new_p_right.global_position = global_position + Vector2(4, -10)
 
 	
