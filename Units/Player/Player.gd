@@ -14,7 +14,7 @@ func _ready():
 	#if weapon == null:
 	#	weapon = load("res://Weapons/PlayerWideBullets/PlayerWideBullets.gd")
 	w = weapon.instance()
-	w._ready()
+	add_child(w)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
