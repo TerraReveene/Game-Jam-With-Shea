@@ -21,8 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Shea Terra Jam Game"
-run/main_scene="res://EmmaTestSprite.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gdnative]
 

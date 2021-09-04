@@ -1,19 +1,23 @@
 extends Node2D
 
 export var missile: PackedScene
-export var cooldown: float = 1
-var timer: float = 0
-export var active = true
+export var cooldown = 1.0
+var timer := 0.0
+export var active := false
+export var inaccuracy := 15.0
 
 func _physics_process(delta: float) -> void:
-	if $RayCast2D.is_colliding() && active && timer >= cooldown:
+	if (active && timer >= cooldown):
 		fire()
-	timer += delta
+	if active:
+		timer += delta
 
 func fire() -> void:
 	var instance = missile.instance()
 	add_child(instance)
-	instance.rotation_degrees = self.rotation_degrees
+	instance.rotation_degrees = rotation_degrees + rand_range(-inaccuracy, inaccuracy)
 	instance.position = self.position
 	timer -= cooldown
 
+func set_active(value) -> void:
+	active = value
