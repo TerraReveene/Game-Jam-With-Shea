@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var health := 1
+export var health := 1.0
 export var speed := 200
 export var collision_damage := 5
 var direction := Vector2.DOWN
@@ -18,16 +18,20 @@ func _physics_process(delta: float) -> void:
 			collision.collider.hit(collision_damage)
 		queue_free()
 
-func hit (damage) -> void:
+func hit (damage: float) -> void:
 	health -= damage
-	if health < 1:
+	if health <= 0:
 		queue_free()
 
 func aim_towards(vector: Vector2) -> void:
 	for child in $Weapons.get_children():
 		child.look_at(vector)
-		child.rotation_degrees += 90
 
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	for child in $Weapons.get_children():
 		child.set_active(true)
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	for child in $Weapons.get_children():
+		child.set_active(false)
