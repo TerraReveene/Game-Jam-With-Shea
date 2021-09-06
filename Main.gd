@@ -9,6 +9,12 @@ var next_wave_time := 5.0
 var current_wave := 0
 
 func _ready() -> void:
+	
+	for child in $StaticWave.get_children():
+		$Player.connect("destroy_all_enemies_bullets", child,"_on_destroy_all_enemies_bullets")
+		$Player.connect("kill_all_enemies", child,"_on_kill_all_enemies")
+		child.connect("score_points", $Player, "_on_score_points")
+		
 	randomize()
 	if shuffle_initial_waves:
 		waves.shuffle()

@@ -35,11 +35,11 @@ func aim_towards(vector: Vector2) -> void:
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	for child in $Weapons.get_children():
 		child.set_active(true)
+	on_screen = true
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	for child in $Weapons.get_children():
 		child.set_active(false)
-	on_screen = true
 
 func _on_destroy_all_enemies_bullets():
 	for child in $Weapons.get_children():
