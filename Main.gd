@@ -1,6 +1,7 @@
 extends Node2D
 
 export (Array, PackedScene) var waves
+export var repeat_waves := true
 var timer := 0.0
 var next_wave_time := 5.0
 var current_wave := 0
@@ -13,5 +14,5 @@ func _physics_process(delta: float) -> void:
 		timer -= next_wave_time
 		next_wave_time = wave.time_until_next_wave
 		current_wave += 1
-	if current_wave >= waves.size():
+	if current_wave >= waves.size() && repeat_waves:
 		current_wave = 0
