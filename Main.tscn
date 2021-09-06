@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Units/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Waves/HarrierSpike.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 waves = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 
+[node name="UI" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -2.0
+margin_right = 1022.0
+margin_bottom = 600.0
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 482.325, 538.949 )
 
 [node name="StaticWave" parent="." instance=ExtResource( 2 )]
+
+[connection signal="bombs_changed" from="Player" to="UI" method="_on_Player_bombs_changed"]
+[connection signal="lives_changed" from="Player" to="UI" method="_on_Player_lives_changed"]
+[connection signal="score_changed" from="Player" to="UI" method="_on_Player_score_changed"]

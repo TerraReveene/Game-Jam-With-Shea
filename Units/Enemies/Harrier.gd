@@ -4,6 +4,10 @@ export var health := 1.0
 export var speed := 200
 export var collision_damage := 5
 var direction := Vector2.DOWN
+var on_screen := false
+var score_value := 50
+
+signal score_points(points)
 
 func _process(delta: float) -> void:
 	if $PlayerFinder.player_found:
@@ -22,6 +26,7 @@ func hit (damage: float) -> void:
 	health -= damage
 	if health <= 0:
 		queue_free()
+	emit_signal("score_points", score_value)
 
 func aim_towards(vector: Vector2) -> void:
 	for child in $Weapons.get_children():
@@ -31,7 +36,17 @@ func _on_VisibilityNotifier2D_screen_entered() -> void:
 	for child in $Weapons.get_children():
 		child.set_active(true)
 
-
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	for child in $Weapons.get_children():
 		child.set_active(false)
+	on_screen = true
+
+func _on_destroy_all_enemies_bullets():
+	for child in $Weapons.get_children():
+		for child2 in child.get_children():
+			for child3 in child2.get_children():
+				child3.queue_free()
+		
+func _on_kill_all_enemies():
+	if on_screen:
+		queue_free()
