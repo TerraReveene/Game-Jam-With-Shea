@@ -5,7 +5,6 @@ export var repeat_waves := true
 export var shuffle_initial_waves := false
 export var shuffle_waves_after_completion := true
 var timer := 0.0
-<<<<<<< HEAD
 var next_wave_time := 5.0
 var current_wave := 0
 
