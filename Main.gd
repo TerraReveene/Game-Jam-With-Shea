@@ -26,7 +26,8 @@ func _physics_process(delta: float) -> void:
 		var wave = waves[current_wave].instance()
 		add_child(wave)
 		timer -= next_wave_time
-		next_wave_time = clamp(wave.time_until_next_wave, 1, wave.time_until_next_wave - repeats)
+		var time = wave.time_until_next_wave
+		next_wave_time = clamp(time, time * 0.25, time - repeats)
 		current_wave += 1
 		for child in wave.get_children():
 			$Player.connect("destroy_all_enemies_bullets", child,"_on_destroy_all_enemies_bullets")
