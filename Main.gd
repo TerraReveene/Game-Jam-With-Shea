@@ -2,9 +2,16 @@ extends Node2D
 
 export (Array, PackedScene) var waves
 export var repeat_waves := true
+export var shuffle_initial_waves := false
+export var shuffle_waves_after_completion := true
 var timer := 0.0
 var next_wave_time := 5.0
 var current_wave := 0
+
+func _ready() -> void:
+	randomize()
+	if shuffle_initial_waves:
+		waves.shuffle()
 
 func _physics_process(delta: float) -> void:
 	timer += delta
@@ -16,3 +23,5 @@ func _physics_process(delta: float) -> void:
 		current_wave += 1
 	if current_wave >= waves.size() && repeat_waves:
 		current_wave = 0
+		if shuffle_waves_after_completion:
+			waves.shuffle()
