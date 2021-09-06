@@ -18,3 +18,11 @@ func _ready():
 
 func _on_Player_bombs_changed(bombs):
 	$MarginBombs/HBoxBombs/Margin2Bombs/HBox2Bombs/MarginBombsValue/BombsValue.text = String(bombs)
+
+
+func _on_Player_lives_changed(lives):
+	$MarginLives/HBoxLives/Margin2Lives/HBox2Lives/MarginLivesValue/LivesValue.text = String(lives)
+
+
+func _on_Player_score_changed(score):
+	$MarginScore/HBoxScore/Margin2Score/HBox2Score/MarginScoreValue/ScoreValue.text = String(score)

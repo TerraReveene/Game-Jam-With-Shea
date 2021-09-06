@@ -21,3 +21,5 @@ position = Vector2( 482.325, 538.949 )
 [node name="StaticWave" parent="." instance=ExtResource( 2 )]
 
 [connection signal="bombs_changed" from="Player" to="UI" method="_on_Player_bombs_changed"]
+[connection signal="lives_changed" from="Player" to="UI" method="_on_Player_lives_changed"]
+[connection signal="score_changed" from="Player" to="UI" method="_on_Player_score_changed"]

@@ -50,11 +50,11 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
 
-[node name="Hbox2Score" type="HBoxContainer" parent="MarginScore/HBoxScore/Margin2Score"]
+[node name="HBox2Score" type="HBoxContainer" parent="MarginScore/HBoxScore/Margin2Score"]
 margin_right = 131.0
 margin_bottom = 60.0
 
-[node name="MarginScoreTitle" type="MarginContainer" parent="MarginScore/HBoxScore/Margin2Score/Hbox2Score"]
+[node name="MarginScoreTitle" type="MarginContainer" parent="MarginScore/HBoxScore/Margin2Score/HBox2Score"]
 margin_right = 101.0
 margin_bottom = 60.0
 custom_constants/margin_right = 5
@@ -62,7 +62,7 @@ custom_constants/margin_top = 0
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 0
 
-[node name="ScoreTitle" type="Label" parent="MarginScore/HBoxScore/Margin2Score/Hbox2Score/MarginScoreTitle"]
+[node name="ScoreTitle" type="Label" parent="MarginScore/HBoxScore/Margin2Score/HBox2Score/MarginScoreTitle"]
 margin_left = 5.0
 margin_top = 14.0
 margin_right = 96.0
@@ -75,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginScoreValue" type="MarginContainer" parent="MarginScore/HBoxScore/Margin2Score/Hbox2Score"]
+[node name="MarginScoreValue" type="MarginContainer" parent="MarginScore/HBoxScore/Margin2Score/HBox2Score"]
 margin_left = 105.0
 margin_right = 131.0
 margin_bottom = 60.0
@@ -84,7 +84,7 @@ custom_constants/margin_top = 0
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 0
 
-[node name="ScoreValue" type="Label" parent="MarginScore/HBoxScore/Margin2Score/Hbox2Score/MarginScoreValue"]
+[node name="ScoreValue" type="Label" parent="MarginScore/HBoxScore/Margin2Score/HBox2Score/MarginScoreValue"]
 margin_left = 5.0
 margin_top = 14.0
 margin_right = 21.0

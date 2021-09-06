@@ -5,6 +5,9 @@ export var speed := 200
 export var collision_damage := 5
 var direction := Vector2.DOWN
 var on_screen := false
+var score_value := 50
+
+signal score_points(points)
 
 func _process(delta: float) -> void:
 	if $PlayerFinder.player_found:
@@ -23,6 +26,7 @@ func hit (damage) -> void:
 	health -= damage
 	if health < 1:
 		queue_free()
+	emit_signal("score_points", score_value)
 
 func aim_towards(vector: Vector2) -> void:
 	for child in $Weapons.get_children():
