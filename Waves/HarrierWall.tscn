@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Waves/Base/StaticWave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Units/Enemies/Harrier.tscn" type="PackedScene" id=2]
+
+[node name="StaticWave" instance=ExtResource( 1 )]
+time_until_next_wave = 5.0
+
+[node name="Harrier" parent="." index="0" instance=ExtResource( 2 )]
+position = Vector2( 310, -50 )
+
+[node name="Harrier2" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 380, -50 )
+
+[node name="Harrier3" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 450, -50 )
+
+[node name="Harrier4" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 520, -50 )
+
+[node name="Harrier5" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 590, -50 )

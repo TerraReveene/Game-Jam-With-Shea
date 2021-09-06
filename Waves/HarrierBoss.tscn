@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Waves/Base/StaticWave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Units/Enemies/Harrier.tscn" type="PackedScene" id=2]
+
+[node name="StaticWave" instance=ExtResource( 1 )]
+time_until_next_wave = 25.0
+
+[node name="Harrier" parent="." index="0" instance=ExtResource( 2 )]
+position = Vector2( 466.187, -134.828 )
+scale = Vector2( 2, 2 )
+health = 25.0
+speed = 25
+
+[node name="SingleBulletShooter" parent="Harrier/Weapons" index="0"]
+cooldown = 0.1
+inaccuracy = 40.0
+
+[editable path="Harrier"]

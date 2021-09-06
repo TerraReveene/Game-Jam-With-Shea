@@ -6,9 +6,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
-waves = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+waves = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), null, null, null, null, null, null, null ]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 482.325, 538.949 )
-
-[node name="StaticWave" parent="." instance=ExtResource( 2 )]
