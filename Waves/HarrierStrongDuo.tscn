@@ -4,11 +4,12 @@
 [ext_resource path="res://Units/Enemies/Harrier.tscn" type="PackedScene" id=2]
 
 [node name="StaticWave" instance=ExtResource( 1 )]
-time_until_next_wave = 7.0
+time_until_next_wave = 5.0
 
 [node name="Harrier" parent="." index="0" instance=ExtResource( 2 )]
 position = Vector2( 185.913, -82.45 )
-health = 3.0
+health = 5.0
+speed = 75
 
 [node name="SingleBulletShooter" parent="Harrier/Weapons" index="0"]
 cooldown = 0.25
@@ -17,6 +18,7 @@ inaccuracy = 20.0
 [node name="Harrier2" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 849.562, -71.4318 )
 health = 3.0
+speed = 75
 
 [node name="SingleBulletShooter" parent="Harrier2/Weapons" index="0"]
 cooldown = 0.25

@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Units/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Waves/HarrierSpike.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Waves/HarrierStrongDuo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Waves/HarrierWall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Waves/HarrierBoss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Waves/HarrierRumble.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
-waves = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), null, null, null, null, null, null, null ]
+waves = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ) ]
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 anchor_right = 0.0

@@ -21,3 +21,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_destroy_all_enemies_bullets():
 	queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	queue_free()

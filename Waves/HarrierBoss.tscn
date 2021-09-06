@@ -4,7 +4,7 @@
 [ext_resource path="res://Units/Enemies/Harrier.tscn" type="PackedScene" id=2]
 
 [node name="StaticWave" instance=ExtResource( 1 )]
-time_until_next_wave = 25.0
+time_until_next_wave = 10.0
 
 [node name="Harrier" parent="." index="0" instance=ExtResource( 2 )]
 position = Vector2( 466.187, -134.828 )
