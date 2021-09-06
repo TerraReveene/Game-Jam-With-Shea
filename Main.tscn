@@ -9,12 +9,15 @@
 script = ExtResource( 3 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
-margin_left = 291.328
-margin_top = 86.267
-margin_right = 291.328
-margin_bottom = 86.267
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -2.0
+margin_right = 1022.0
+margin_bottom = 600.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 482.325, 538.949 )
 
 [node name="StaticWave" parent="." instance=ExtResource( 2 )]
+
+[connection signal="bombs_changed" from="Player" to="UI" method="_on_Player_bombs_changed"]

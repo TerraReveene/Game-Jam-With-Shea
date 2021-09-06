@@ -17,3 +17,6 @@ func _physics_process(delta: float) -> void:
 	timer += delta
 	if timer >= expiration_time:
 		queue_free()
+
+func _on_destroy_all_enemies_bullets():
+	queue_free()
