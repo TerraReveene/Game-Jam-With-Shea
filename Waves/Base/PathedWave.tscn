@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 101.875, -625.253, 0, 0, -142.384, 38.782, -37.755, -134.03, 37.755, 134.03, -90.93, 195.634, -110.433, -15.102, 110.433, 15.102, 201.372, 309.026, -245.407, -49.0815, 245.407, 49.0815, 656.203, 351.864, -30.9194, -44.0007, 30.9194, 44.0007, 928.342, 486.347, 0, 0, 0, 0, 1071.18, 830.001 )
+}
+
+[node name="PathedWave" type="Node"]
+
+[node name="Path" type="Path2D" parent="."]
+position = Vector2( 206.534, -120.39 )
+curve = SubResource( 1 )

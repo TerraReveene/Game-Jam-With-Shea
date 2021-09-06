@@ -13,3 +13,5 @@ func _physics_process(delta: float) -> void:
 		timer -= next_wave_time
 		next_wave_time = wave.time_until_next_wave
 		current_wave += 1
+	if current_wave >= waves.size():
+		current_wave = 0
