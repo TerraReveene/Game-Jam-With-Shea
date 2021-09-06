@@ -14,10 +14,11 @@ func _physics_process(delta: float) -> void:
 
 func fire() -> void:
 	var instance = missile.instance()
-	$BulletHolder.add_child(instance)
-	instance.rotation_degrees = self.rotation_degrees + rand_range(-inaccuracy, inaccuracy)
-	instance.position = self.global_position
-	timer -= cooldown
+	if $BulletHolder != null:
+		$BulletHolder.add_child(instance)
+		instance.rotation_degrees = self.rotation_degrees + rand_range(-inaccuracy, inaccuracy)
+		instance.position = self.global_position
+		timer -= cooldown
 
 func set_active(value) -> void:
 	active = value

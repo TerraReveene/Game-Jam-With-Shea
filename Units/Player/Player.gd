@@ -1,13 +1,22 @@
 extends KinematicBody2D
 
 export var base_speed := 500.0
+var bombs := 4
 var speed
 var velocity := Vector2.ZERO
 var life := 50
+var lives := 4
 var primary_weapon
 var secondary_weapon
 var w1
 var w2
+var score := 0
+
+signal destroy_all_enemies_bullets
+signal kill_all_enemies
+signal bombs_changed(bombs)
+signal lives_changed(lives)
+signal score_changed(score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,6 +68,10 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("shoot2") and Input.is_action_just_released("shoot1"):
 		speed = w2.player_speed
 		w2.start_shooting()
+		
+	if Input.is_action_just_pressed("bomb"):
+		bomb()
+	
 	velocity = velocity.normalized() * speed
 	var collision = move_and_collide(velocity * delta)
 
@@ -73,3 +86,18 @@ func shoot():
 
 func _on_ShootTimer_timeout():
 	shoot()
+
+func bomb():
+	if bombs > 0:
+		emit_signal("destroy_all_enemies_bullets")
+		emit_signal("kill_all_enemies")
+		bombs -= 1
+		emit_signal("bombs_changed", bombs)
+
+func hit(damage):
+	lives -= 1
+	emit_signal("lives_changed", lives)
+
+func _on_score_points(points):
+	score += points
+	emit_signal("score_changed", score)
